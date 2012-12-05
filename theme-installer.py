@@ -5,6 +5,10 @@ from PySide.QtGui import QApplication, QPixmap, QSplashScreen
 
 from ui.mainwindow import MainWindow
 
+# Create tmp directory if it doesn't exist
+if not os.path.exists(os.path.join(os.getcwd(), 'tmp')):
+	os.mkdir(os.path.join(os.getcwd(), 'tmp'))
+
 # The app
 if __name__ == '__main__':
 	# Create app
