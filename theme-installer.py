@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import sys
 from inc.functions import *
 from PySide.QtGui import QApplication, QPixmap, QSplashScreen
