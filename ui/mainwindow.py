@@ -1,4 +1,4 @@
-import os, urlparse
+import os, sys, urlparse
 from inc.functions import *
 from PySide.QtCore import Qt
 from PySide.QtGui import QDesktopServices, QMainWindow, QMessageBox
@@ -22,7 +22,7 @@ class MainWindow(QMainWindow):
 		self.ui.descriptionWebView.linkClicked.connect(self.eventLinkClicked)
 
 		# Menu slots
-		self.ui.actionExit.triggered.connect(quit)
+		self.ui.actionExit.triggered.connect(sys.exit)
 		self.ui.actionOptions.triggered.connect(self.optionsTriggered)
 
 	def loadWindow(self):
