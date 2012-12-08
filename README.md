@@ -30,5 +30,4 @@ Currently tested on Windows 7 and Linux Mint 14
 *Todo*
 ------
 * Implement splashscreen for when the SourceForge servers are running slow.
-* Auto-detect button for the theme directory. Possibly also automatically configured on first run.
 * Caching mechanism for the files so we don't need to download as much (maybe HTML too?).
