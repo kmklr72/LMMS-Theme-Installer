@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-import sys
-from inc.functions import *
-from PySide.QtGui import QApplication, QPixmap, QSplashScreen
+import os, sys
+from PySide.QtGui import QApplication
 
 from ui.mainwindow import MainWindow
 

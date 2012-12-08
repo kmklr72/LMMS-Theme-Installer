@@ -11,3 +11,9 @@ class Config(ConfigParser.ConfigParser, object):
 			value = value.replace('%cd%', os.getcwd())
 
 		return value
+
+	def save(self):
+		return self.write(open(os.path.join(os.getcwd(), 'config.cfg'), 'wb'))
+
+	def load(self):
+		return self.read(os.path.join(os.getcwd(), 'config.cfg'))

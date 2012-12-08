@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\DO NOT MOVE\Desktop\LMMS Theme Installer\ui\ui\configuration.ui'
+# Form implementation generated from reading ui file 'D:\DO NOT MOVE\My Documents\GitHub\LMMS-Theme-Installer\ui\ui\configuration.ui'
 #
-# Created: Sun Dec 02 20:14:04 2012
+# Created: Fri Dec 07 21:38:28 2012
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_Configuration(object):
     def setupUi(self, Configuration):
         Configuration.setObjectName("Configuration")
-        Configuration.resize(342, 156)
+        Configuration.resize(342, 184)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -51,6 +51,9 @@ class Ui_Configuration(object):
         self.themeDirLineEdit = QtGui.QLineEdit(self.generalGroupBox)
         self.themeDirLineEdit.setObjectName("themeDirLineEdit")
         self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.themeDirLineEdit)
+        self.themeDirAutoGenPushButton = QtGui.QPushButton(self.generalGroupBox)
+        self.themeDirAutoGenPushButton.setObjectName("themeDirAutoGenPushButton")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.themeDirAutoGenPushButton)
         self.gridLayout.addWidget(self.generalGroupBox, 0, 0, 1, 2)
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -74,5 +77,6 @@ class Ui_Configuration(object):
         self.lspLabel.setText(QtGui.QApplication.translate("Configuration", "LMMS SP URL", None, QtGui.QApplication.UnicodeUTF8))
         self.tmpDirLabel.setText(QtGui.QApplication.translate("Configuration", "Temp Directory", None, QtGui.QApplication.UnicodeUTF8))
         self.themeDirLabel.setText(QtGui.QApplication.translate("Configuration", "Theme Directory", None, QtGui.QApplication.UnicodeUTF8))
+        self.themeDirAutoGenPushButton.setText(QtGui.QApplication.translate("Configuration", "Auto Generate Theme Directory", None, QtGui.QApplication.UnicodeUTF8))
         self.actionExit.setText(QtGui.QApplication.translate("Configuration", "Exit", None, QtGui.QApplication.UnicodeUTF8))
 

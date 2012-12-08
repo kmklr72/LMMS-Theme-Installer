@@ -3,8 +3,9 @@ from inc.config import Config
 import os, re, shutil, stat, tarfile, urllib, urlparse
 
 # Config
+global config
 config = Config()
-config.read(os.path.join(os.getcwd(), 'config.cfg'))
+config.load()
 
 def get_source(url):
 	source = urllib.urlopen(url)
@@ -204,9 +205,7 @@ def download_theme(url):
 
 def install_theme(tarball):
 	tar = tarfile.open(os.path.join(config.get('General', 'tmp'), tarball), 'r')
-	#theme_name = os.path.splitext(tarball)[0]
 	theme_name = tarball.split('.')[0]
-	#print theme_name
 	tar.extractall(os.path.join(config.get('General', 'tmp'), theme_name))
 	tar.close()
 

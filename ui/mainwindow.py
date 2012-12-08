@@ -5,10 +5,6 @@ from PySide.QtGui import QDesktopServices, QMainWindow, QMessageBox
 from PySide.QtWebKit import QWebPage
 from ui.mainwindow import Ui_MainWindow
 
-# Config
-config = Config()
-config.read(os.path.join(os.getcwd(), 'config.cfg'))
-
 class MainWindow(QMainWindow):
 	def __init__(self):
 		# Load window
@@ -16,6 +12,8 @@ class MainWindow(QMainWindow):
 		self.ui = Ui_MainWindow()
 		self.ui.setupUi(self)
 		self.loadWindow()
+
+		self.ui.descriptionWebView.page().setLinkDelegationPolicy(QWebPage.DelegateAllLinks)
 
 		# Widget slots
 		self.ui.themeListWidget.clicked.connect(self.themeListWidgetClicked)
@@ -28,9 +26,7 @@ class MainWindow(QMainWindow):
 	def loadWindow(self):
 		global config
 		config = Config()
-		config.read(os.path.join(os.getcwd(), 'config.cfg'))
-
-		self.ui.descriptionWebView.page().setLinkDelegationPolicy(QWebPage.DelegateAllLinks)
+		config.load()
 
 		if self.ui.themeListWidget.item(0) is None:
 			self.themes = remote_get_themes()
@@ -91,4 +87,3 @@ class MainWindow(QMainWindow):
 
 		self.configWindow = ConfigurationWindow()
 		self.configWindow.show()
-		self.configWindow.changed.connect(self.loadWindow)
