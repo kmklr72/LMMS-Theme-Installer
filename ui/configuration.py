@@ -33,8 +33,8 @@ class ConfigurationWindow(QMainWindow):
 	def saveConfig(self):
 		# General group
 		config.set('General', 'lsp', self.ui.lspLineEdit.text())
-		config.set('General', 'tmp', self.ui.tmpDirLineEdit.text())
-		config.set('General', 'theme_dir', self.ui.themeDirLineEdit.text())
+		config.set('General', 'tmp', os.path.normpath(self.ui.tmpDirLineEdit.text()))
+		config.set('General', 'theme_dir', os.path.normpath(self.ui.themeDirLineEdit.text()))
 		config.save()
 
 		self.close()
