@@ -23,12 +23,7 @@ class ConfigurationWindow(QMainWindow):
 		self.ui.themeDirLineEdit.setText(config.get('General', 'theme_dir'))
 
 	def autoGenThemeDir(self):
-		from bs4 import BeautifulSoup
-
-		lmms_rc_file = os.path.join(QDir.home().absolutePath(), '.lmmsrc.xml')
-
-		xml = BeautifulSoup(open(lmms_rc_file).read())
-		self.ui.themeDirLineEdit.setText(os.path.normpath(os.path.split(xml.paths['artwork'].rstrip('/\\'))[0]))
+		self.ui.themeDirLineEdit.setText(generate_theme_dir())
 
 	def saveConfig(self):
 		# General group

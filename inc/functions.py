@@ -1,6 +1,6 @@
+import os, re, shutil, stat, tarfile, urllib, urlparse
 from bs4 import BeautifulSoup
 from inc.config import Config
-import os, re, shutil, stat, tarfile, urllib, urlparse
 
 # Config
 global config
@@ -255,3 +255,11 @@ def get_username(string):
 		pass
 
 	return string
+
+def generate_theme_dir():
+	from PySide.QtCore import QDir
+
+	lmms_rc_file = os.path.join(QDir.home().absolutePath(), '.lmmsrc.xml')
+
+	xml = BeautifulSoup(open(lmms_rc_file).read())
+	return os.path.normpath(os.path.split(xml.paths['artwork'].rstrip('/\\'))[0])
