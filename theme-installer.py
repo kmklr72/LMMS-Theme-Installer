@@ -7,10 +7,11 @@ from ui.mainwindow import MainWindow
 config = Config()
 config.load()
 
-# Create tmp directory if it doesn't exist
-if not os.path.exists(os.path.join(os.getcwd(), 'tmp')):
-	os.mkdir(os.path.join(os.getcwd(), 'tmp'))
-	os.chmod(os.path.join(os.getcwd(), 'tmp'), 0777)
+# Create some directories if they don't exist
+for dir in ['tmp', 'cache', 'cache' + os.sep + 'data']:
+	if not os.path.exists(os.path.join(os.getcwd(), dir)):
+		os.mkdir(os.path.join(os.getcwd(), dir))
+		os.chmod(os.path.join(os.getcwd(), dir), 0777)
 
 # The app
 if __name__ == '__main__':

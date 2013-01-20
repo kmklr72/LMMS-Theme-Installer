@@ -9,27 +9,37 @@ class ConfigurationWindow(QMainWindow):
 		super(ConfigurationWindow, self).__init__()
 		self.ui = Ui_Configuration()
 		self.ui.setupUi(self)
-		self.populateConfig()
+		self.populate_config()
 
 		# Slots
 		self.ui.configButtonBox.rejected.connect(self.close)
-		self.ui.configButtonBox.accepted.connect(self.saveConfig)
-		self.ui.themeDirAutoGenPushButton.clicked.connect(self.autoGenThemeDir)
+		self.ui.configButtonBox.accepted.connect(self.save_config)
+		self.ui.dataDirAutoGenPushButton.clicked.connect(self.auto_gen_data_dir)
 
-	def populateConfig(self):
+	def populate_config(self):
 		# General group
 		self.ui.lspLineEdit.setText(config.get('General', 'lsp'))
-		self.ui.tmpDirLineEdit.setText(config.get('General', 'tmp'))
-		self.ui.themeDirLineEdit.setText(config.get('General', 'theme_dir'))
+		self.ui.tmpDirLineEdit.setText(config.get('Directories', 'tmp'))
+		self.ui.dataDirLineEdit.setText(config.get('Directories', 'data'))
+		self.ui.themeDirLineEdit.setText(config.get('Directories', 'themes'))
+		self.ui.presetDirLineEdit.setText(config.get('Directories', 'presets'))
 
-	def autoGenThemeDir(self):
-		self.ui.themeDirLineEdit.setText(generate_theme_dir())
+	def auto_gen_data_dir(self):
+		self.ui.dataDirLineEdit.setText(self._generate_data_dir())
 
-	def saveConfig(self):
+	def save_config(self):
 		# General group
 		config.set('General', 'lsp', self.ui.lspLineEdit.text())
-		config.set('General', 'tmp', os.path.normpath(self.ui.tmpDirLineEdit.text()))
-		config.set('General', 'theme_dir', os.path.normpath(self.ui.themeDirLineEdit.text()))
+		config.set('Directories', 'tmp', os.path.normpath(self.ui.tmpDirLineEdit.text()))
+		config.set('Directories', 'data', os.path.normpath(self.ui.dataDirLineEdit.text()))
+		config.set('Directories', 'themes', os.path.normpath(self.ui.themeDirLineEdit.text()))
+		config.set('Directories', 'presets', os.path.normpath(self.ui.presetDirLineEdit.text()))
 		config.save()
 
 		self.close()
+
+	def _generate_data_dir(self):
+		lmms_rc_file = os.path.join(QDir.home().absolutePath(), '.lmmsrc.xml')
+
+		xml = BeautifulSoup(open(lmms_rc_file).read())
+		return os.path.normpath(os.path.split(os.path.split(xml.paths['artwork'].rstrip('/\\'))[0])[0])

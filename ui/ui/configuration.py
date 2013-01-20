@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'D:\DO NOT MOVE\My Documents\GitHub\LMMS-Theme-Installer\ui\ui\configuration.ui'
 #
-# Created: Fri Dec 07 21:38:28 2012
+# Created: Sun Jan 20 11:55:18 2013
 #      by: pyside-uic 0.2.14 running on PySide 1.1.2
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PySide import QtCore, QtGui
 class Ui_Configuration(object):
     def setupUi(self, Configuration):
         Configuration.setObjectName("Configuration")
-        Configuration.resize(342, 184)
+        Configuration.resize(342, 233)
         sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -45,15 +45,27 @@ class Ui_Configuration(object):
         self.tmpDirLineEdit = QtGui.QLineEdit(self.generalGroupBox)
         self.tmpDirLineEdit.setObjectName("tmpDirLineEdit")
         self.formLayout.setWidget(1, QtGui.QFormLayout.FieldRole, self.tmpDirLineEdit)
-        self.themeDirLabel = QtGui.QLabel(self.generalGroupBox)
-        self.themeDirLabel.setObjectName("themeDirLabel")
-        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.themeDirLabel)
+        self.dataDirLabel = QtGui.QLabel(self.generalGroupBox)
+        self.dataDirLabel.setObjectName("dataDirLabel")
+        self.formLayout.setWidget(2, QtGui.QFormLayout.LabelRole, self.dataDirLabel)
+        self.dataDirLineEdit = QtGui.QLineEdit(self.generalGroupBox)
+        self.dataDirLineEdit.setObjectName("dataDirLineEdit")
+        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.dataDirLineEdit)
+        self.dataDirAutoGenPushButton = QtGui.QPushButton(self.generalGroupBox)
+        self.dataDirAutoGenPushButton.setObjectName("dataDirAutoGenPushButton")
+        self.formLayout.setWidget(5, QtGui.QFormLayout.FieldRole, self.dataDirAutoGenPushButton)
         self.themeDirLineEdit = QtGui.QLineEdit(self.generalGroupBox)
         self.themeDirLineEdit.setObjectName("themeDirLineEdit")
-        self.formLayout.setWidget(2, QtGui.QFormLayout.FieldRole, self.themeDirLineEdit)
-        self.themeDirAutoGenPushButton = QtGui.QPushButton(self.generalGroupBox)
-        self.themeDirAutoGenPushButton.setObjectName("themeDirAutoGenPushButton")
-        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.themeDirAutoGenPushButton)
+        self.formLayout.setWidget(3, QtGui.QFormLayout.FieldRole, self.themeDirLineEdit)
+        self.themeDirLabel = QtGui.QLabel(self.generalGroupBox)
+        self.themeDirLabel.setObjectName("themeDirLabel")
+        self.formLayout.setWidget(3, QtGui.QFormLayout.LabelRole, self.themeDirLabel)
+        self.presetDirLineEdit = QtGui.QLineEdit(self.generalGroupBox)
+        self.presetDirLineEdit.setObjectName("presetDirLineEdit")
+        self.formLayout.setWidget(4, QtGui.QFormLayout.FieldRole, self.presetDirLineEdit)
+        self.presetDirLabel = QtGui.QLabel(self.generalGroupBox)
+        self.presetDirLabel.setObjectName("presetDirLabel")
+        self.formLayout.setWidget(4, QtGui.QFormLayout.LabelRole, self.presetDirLabel)
         self.gridLayout.addWidget(self.generalGroupBox, 0, 0, 1, 2)
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
@@ -76,7 +88,9 @@ class Ui_Configuration(object):
         self.generalGroupBox.setTitle(QtGui.QApplication.translate("Configuration", "General", None, QtGui.QApplication.UnicodeUTF8))
         self.lspLabel.setText(QtGui.QApplication.translate("Configuration", "LMMS SP URL", None, QtGui.QApplication.UnicodeUTF8))
         self.tmpDirLabel.setText(QtGui.QApplication.translate("Configuration", "Temp Directory", None, QtGui.QApplication.UnicodeUTF8))
+        self.dataDirLabel.setText(QtGui.QApplication.translate("Configuration", "Data Directory", None, QtGui.QApplication.UnicodeUTF8))
+        self.dataDirAutoGenPushButton.setText(QtGui.QApplication.translate("Configuration", "Auto Generate Data Directory", None, QtGui.QApplication.UnicodeUTF8))
         self.themeDirLabel.setText(QtGui.QApplication.translate("Configuration", "Theme Directory", None, QtGui.QApplication.UnicodeUTF8))
-        self.themeDirAutoGenPushButton.setText(QtGui.QApplication.translate("Configuration", "Auto Generate Theme Directory", None, QtGui.QApplication.UnicodeUTF8))
+        self.presetDirLabel.setText(QtGui.QApplication.translate("Configuration", "Presets Directory", None, QtGui.QApplication.UnicodeUTF8))
         self.actionExit.setText(QtGui.QApplication.translate("Configuration", "Exit", None, QtGui.QApplication.UnicodeUTF8))
 

@@ -5,7 +5,12 @@ class Config(ConfigParser.ConfigParser, object):
 		super(Config, self).__init__()
 
 	def get(self, section, option, raw = False, vars = None):
-		value = super(Config, self).get(section, option, raw, vars)
+		try:
+			value = super(Config, self).get(section, option, raw, vars)
+		except (ConfigParser.NoOptionError, ConfigParser.NoSectionError):
+			value = ''
+			if section == 'Directories':
+				return
 
 		if '%cd%' in value:
 			value = value.replace('%cd%', os.getcwd())
