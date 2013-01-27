@@ -25,7 +25,7 @@ class ConfigurationWindow(QMainWindow):
 		self.ui.presetDirLineEdit.setText(config.get('Directories', 'presets'))
 
 	def auto_gen_data_dir(self):
-		self.ui.dataDirLineEdit.setText(self._generate_data_dir())
+		self.ui.dataDirLineEdit.setText(generate_data_dir())
 
 	def save_config(self):
 		# General group
@@ -37,9 +37,3 @@ class ConfigurationWindow(QMainWindow):
 		config.save()
 
 		self.close()
-
-	def _generate_data_dir(self):
-		lmms_rc_file = os.path.join(QDir.home().absolutePath(), '.lmmsrc.xml')
-
-		xml = BeautifulSoup(open(lmms_rc_file).read())
-		return os.path.normpath(os.path.split(os.path.split(xml.paths['artwork'].rstrip('/\\'))[0])[0])

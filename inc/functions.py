@@ -2,6 +2,7 @@
 import os, re
 from bs4 import BeautifulSoup
 from inc.config import Config
+from PySide.QtCore import QDir
 
 # Config
 global config
@@ -31,3 +32,9 @@ def get_username(string):
 		pass
 
 	return string
+
+def generate_data_dir():
+	lmms_rc_file = os.path.join(QDir.home().absolutePath(), '.lmmsrc.xml')
+
+	xml = BeautifulSoup(open(lmms_rc_file).read())
+	return os.path.normpath(os.path.split(os.path.split(xml.paths['artwork'].rstrip('/\\'))[0])[0])

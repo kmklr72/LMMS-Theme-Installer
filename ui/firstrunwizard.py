@@ -15,11 +15,11 @@ class FirstRunWizardWindow(QWizard):
 
 	def populateConfig(self):
 		# General group
-		self.ui.themeDirLineEdit.setText(generate_theme_dir())
+		self.ui.themeDirLineEdit.setText(generate_data_dir())
 
 	def saveConfig(self):
-		# General group
-		config.set('General', 'theme_dir', os.path.normpath(self.ui.themeDirLineEdit.text()))
+		# Directories group
+		config.set('Directories', 'data', os.path.normpath(self.ui.themeDirLineEdit.text()))
 
 		# Wizard group
 		config.set('Wizard', 'firstrun', 'False')
