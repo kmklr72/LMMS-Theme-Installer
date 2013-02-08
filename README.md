@@ -10,6 +10,7 @@ Currently tested on Windows 7 and Linux Mint 14
 * Python 2.7
 * PySide 1.1.2
 * BeautifulSoup 4
+* Beaker 1.6.4
 
 
 *Usage*
